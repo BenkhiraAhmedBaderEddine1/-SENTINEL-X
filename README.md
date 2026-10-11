@@ -28,6 +28,7 @@ The central principle of SENTINEL-X is **evidence before conclusion**.
 
 The system is therefore not designed to simply ask a Large Language Model to read security logs and generate a convincing explanation. Instead, every significant investigative hypothesis should be connected to identifiable evidence. The platform explicitly separates **observed facts**, **supporting evidence**, **contradicting evidence**, **inferences**, **missing evidence**, and **investigation status**. This allows the system to distinguish between what is directly observed in the telemetry and what is inferred from relationships between observations.
 
+
 At the core of the platform is a multi-stage investigation pipeline:
 
 **Security Telemetry → Ingestion → Normalization → Event Storage → Correlation → Temporal Reconstruction → Entity Resolution → Attack Graph → MITRE ATT&CK Mapping → Evidence Retrieval → AI Investigation → Hypothesis Generation → Verification → Investigation Planning → Human Review → Incident Report.**
