@@ -7,7 +7,7 @@
                                                                                                          
 
                                           
-                                          Evidence-Grounded Autonomous Cyber Incident Reconstruction and Investigation Agent
+                                          Evidence-Grounded Autonomous Cyber Incident Reconstruction and Investigation                                                                                  Agent
 
 
                                                                        (˶˃𐃷˂˶)
