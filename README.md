@@ -47,6 +47,7 @@ For example, an investigation could reveal the following sequence:
 
 The objective is not simply to connect these events because they occurred close together. SENTINEL-X evaluates relationships between their timestamps, entities, behaviors, contextual information, and available security knowledge. The resulting representation can be visualized as a **temporal event graph** or **attack graph**, allowing analysts to examine how users, hosts, processes, domains, IP addresses, accounts, and events are related.
 
+
 The graph representation forms an important part of the system because cybersecurity incidents are inherently relational. A suspicious process may be associated with a particular user, executed on a particular host, contacted a particular domain, resolved to a particular IP address, and subsequently interacted with another machine. Representing these relationships explicitly gives the investigation engine a structured representation of the incident rather than relying exclusively on unstructured natural-language reasoning.
 
 SENTINEL-X additionally integrates **MITRE ATT&CK** as a structured cybersecurity knowledge source. Observed behaviors can be mapped to relevant tactics, techniques, and sub-techniques when sufficient evidence exists. This provides a standardized vocabulary for describing attacker behavior and allows the reconstructed incident to be interpreted within an established cybersecurity framework.
