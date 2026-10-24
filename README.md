@@ -66,187 +66,130 @@
 ---
 
 
-<svg xmlns="http://www.w3.org/2000/svg"
-     xmlns:xlink="http://www.w3.org/1999/xlink"
-     width="1200" height="560" viewBox="0 0 1200 560">
+<img src="https://capsule-render.vercel.app/api?type=rect&height=3&color=0:FF3158,45:BB63FF,100:00D9FF" width="100%" alt="Investigation divider"/>
 
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#080B18"/>
-      <stop offset="48%" stop-color="#160B2B"/>
-      <stop offset="100%" stop-color="#061820"/>
-    </linearGradient>
+<a id="how-sentinel-x-works"></a>
 
-  <linearGradient id="core" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#BB63FF"/>
-      <stop offset="50%" stop-color="#FF3158"/>
-      <stop offset="100%" stop-color="#00D9FF"/>
-    </linearGradient>
+<div align="center">
 
-  <linearGradient id="scan" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#00D9FF" stop-opacity="0"/>
-      <stop offset="50%" stop-color="#00D9FF" stop-opacity=".8"/>
-      <stop offset="100%" stop-color="#BB63FF" stop-opacity="0"/>
-    </linearGradient>
+# ⌁ THE DIGITAL CRIME SCENE ⌁
 
-  <radialGradient id="glow">
-      <stop offset="0%" stop-color="#BB63FF" stop-opacity=".28"/>
-      <stop offset="100%" stop-color="#BB63FF" stop-opacity="0"/>
-    </radialGradient>
+### FRAGMENTED SIGNALS. CONNECTED EVIDENCE. EXPLAINABLE INVESTIGATION.
 
-  <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
-      <path d="M32 0H0V32" fill="none" stroke="#8C9CFF" stroke-opacity=".10" stroke-width="1"/>
-    </pattern>
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=17&duration=2500&pause=700&color=00D9FF&center=true&vCenter=true&width=800&lines=ANALYZING+SECURITY+TELEMETRY...;CORRELATING+TEMPORAL+EVENTS...;RECONSTRUCTING+INCIDENT+SEQUENCES...;VERIFYING+EVIDENCE+AND+HYPOTHESES..." alt="Animated SENTINEL-X investigation status"/>
 
-  <filter id="neon" x="-100%" y="-100%" width="300%" height="300%">
-      <feGaussianBlur stdDeviation="5" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
+</div>
 
-  <clipPath id="frame">
-      <rect width="1200" height="560" rx="22"/>
-    </clipPath>
-  </defs>
+<table>
+<tr>
+<td width="25%" align="center">
 
-  <g clip-path="url(#frame)">
-    <rect width="1200" height="560" fill="url(#bg)"/>
-    <rect width="1200" height="560" fill="url(#grid)"/>
-    <ellipse cx="600" cy="275" rx="380" ry="280" fill="url(#glow)"/>
-<!-- Interface header -->
-    <path d="M0 64H1200" stroke="#6475A8" stroke-opacity=".4"/>
-    <circle cx="28" cy="31" r="5" fill="#FF3158"/>
-    <circle cx="46" cy="31" r="5" fill="#FFB547"/>
-    <circle cx="64" cy="31" r="5" fill="#00F5A0"/>
+### <span style="color:#00D9FF">01</span>
 
-  <text x="88" y="36" fill="#DDE6FF"
-          font-family="monospace" font-size="15" letter-spacing="3">
-      SENTINEL-X // INVESTIGATION CORE
-    </text>
+<img src="https://img.shields.io/badge/INPUT-00D9FF?style=for-the-badge&labelColor=09111F" alt="Input"/>
 
-  <text x="1160" y="36" fill="#00D9FF"
-          text-anchor="end" font-family="monospace" font-size="12">
-      EVIDENCE ENGINE
-    </text>
-<!-- Network connections -->
-  <g fill="none" stroke-width="1.6">
-      <path d="M155 165 L330 205 L475 245" stroke="#00D9FF" stroke-opacity=".75"/>
-      <path d="M160 370 L335 340 L475 295" stroke="#BB63FF" stroke-opacity=".8"/>
-      <path d="M1040 155 L865 205 L725 245" stroke="#FF3158" stroke-opacity=".85"/>
-      <path d="M1040 380 L865 345 L725 295" stroke="#FFB547" stroke-opacity=".8"/>
-      <path d="M600 115 L600 185" stroke="#00D9FF" stroke-opacity=".7" stroke-dasharray="5 7"/>
-      <path d="M600 355 L600 430" stroke="#BB63FF" stroke-opacity=".7" stroke-dasharray="5 7"/>
-      <path d="M330 205 L335 340" stroke="#8B9AFF" stroke-opacity=".3" stroke-dasharray="4 8"/>
-      <path d="M865 205 L865 345" stroke="#8B9AFF" stroke-opacity=".3" stroke-dasharray="4 8"/>
-    </g>
+**RAW SIGNALS**
 
-    <!-- Traveling evidence pulses -->
-  <circle r="4" fill="#00D9FF" filter="url(#neon)">
-      <animateMotion dur="3.2s" repeatCount="indefinite"
-        path="M155 165 L330 205 L475 245"/>
-    </circle>
+<sub>Authentication logs, endpoint events, DNS records and alerts.</sub>
 
-  <circle r="4" fill="#BB63FF" filter="url(#neon)">
-      <animateMotion dur="3.8s" repeatCount="indefinite"
-        path="M160 370 L335 340 L475 295"/>
-    </circle>
+</td>
+<td width="25%" align="center">
 
-  <circle r="4" fill="#FF3158" filter="url(#neon)">
-      <animateMotion dur="2.9s" repeatCount="indefinite"
-        path="M1040 155 L865 205 L725 245"/>
-    </circle>
+### <span style="color:#BB63FF">02</span>
 
-  <circle r="4" fill="#FFB547" filter="url(#neon)">
-      <animateMotion dur="3.5s" repeatCount="indefinite"
-        path="M1040 380 L865 345 L725 295"/>
-    </circle>
+<img src="https://img.shields.io/badge/CORRELATION-BB63FF?style=for-the-badge&labelColor=09111F" alt="Correlation"/>
 
-    <!-- Source nodes -->
-  <g font-family="monospace" text-anchor="middle">
-      <rect x="78" y="126" width="160" height="76" rx="10"
-            fill="#0B1D2B" stroke="#00D9FF" stroke-opacity=".85"/>
-      <text x="158" y="155" fill="#00D9FF" font-size="12">01 / TELEMETRY</text>
-      <text x="158" y="179" fill="#E5F6FF" font-size="15">SYSTEM LOGS</text>
+**EVENT GRAPH**
 
-  <rect x="78" y="333" width="160" height="76" rx="10"
-            fill="#1B1030" stroke="#BB63FF" stroke-opacity=".9"/>
-      <text x="158" y="362" fill="#BB63FF" font-size="12">02 / IDENTITY</text>
-      <text x="158" y="386" fill="#F3E7FF" font-size="15">AUTH EVENTS</text>
+<sub>Relationships between users, processes, hosts and network indicators.</sub>
 
-  <rect x="962" y="116" width="160" height="76" rx="10"
-            fill="#280F21" stroke="#FF3158" stroke-opacity=".9"/>
-      <text x="1042" y="145" fill="#FF6681" font-size="12">03 / NETWORK</text>
-      <text x="1042" y="169" fill="#FFE7EE" font-size="15">DNS / FLOWS</text>
+</td>
+<td width="25%" align="center">
 
-  <rect x="962" y="342" width="160" height="76" rx="10"
-            fill="#241A0D" stroke="#FFB547" stroke-opacity=".9"/>
-      <text x="1042" y="371" fill="#FFB547" font-size="12">04 / ENDPOINT</text>
-      <text x="1042" y="395" fill="#FFF0D2" font-size="15">PROCESS EVENTS</text>
-    </g>
+### <span style="color:#FFB547">03</span>
 
-    <!-- Central intelligence engine -->
-  <circle cx="600" cy="270" r="122" fill="none"
-            stroke="#BB63FF" stroke-opacity=".25" stroke-width="1.5">
-      <animate attributeName="r" values="112;132;112"
-               dur="4s" repeatCount="indefinite"/>
-      <animate attributeName="stroke-opacity" values=".15;.6;.15"
-               dur="4s" repeatCount="indefinite"/>
-    </circle>
+<img src="https://img.shields.io/badge/RECONSTRUCTION-FFB547?style=for-the-badge&labelColor=09111F" alt="Reconstruction"/>
 
-  <circle cx="600" cy="270" r="101" fill="#0B1025"
-            stroke="url(#core)" stroke-width="2.5"/>
+**ATTACK TIMELINE**
 
-  <circle cx="600" cy="270" r="83" fill="none"
-            stroke="#00D9FF" stroke-opacity=".65"
-            stroke-dasharray="3 8">
-      <animateTransform attributeName="transform" type="rotate"
-        from="0 600 270" to="360 600 270"
-        dur="22s" repeatCount="indefinite"/>
-    </circle>
+<sub>A chronological view of potentially related activity.</sub>
 
-  <circle cx="600" cy="270" r="65" fill="url(#glow)"/>
+</td>
+<td width="25%" align="center">
 
-  <g text-anchor="middle" font-family="monospace">
-      <text x="600" y="247" fill="#BB63FF" font-size="14"
-            letter-spacing="3">SENTINEL</text>
-      <text x="600" y="279" fill="#FFFFFF" font-size="29"
-            font-weight="bold" filter="url(#neon)">X</text>
-      <text x="600" y="305" fill="#00D9FF" font-size="10"
-            letter-spacing="2">AI / CORRELATION</text>
-    </g>
+### <span style="color:#FF3158">04</span>
 
-<!-- Moving scanner -->
-  <rect x="452" y="267" width="296" height="5"
-          fill="url(#scan)" opacity=".9">
-      <animate attributeName="y" values="190;350;190"
-               dur="4s" repeatCount="indefinite"/>
-    </rect>
+<img src="https://img.shields.io/badge/VERIFICATION-FF3158?style=for-the-badge&labelColor=09111F" alt="Verification"/>
 
-    <!-- Bottom investigation pipeline -->
-  <path d="M70 455H1130" stroke="#65749A" stroke-opacity=".4"/>
+**EVIDENCE REPORT**
 
-  <g font-family="monospace" text-anchor="middle">
-      <text x="165" y="483" fill="#00D9FF" font-size="13">INGEST</text>
-      <text x="455" y="483" fill="#BB63FF" font-size="13">CORRELATE</text>
-      <text x="745" y="483" fill="#FFB547" font-size="13">RECONSTRUCT</text>
-      <text x="1035" y="483" fill="#FF6681" font-size="13">VERIFY</text>
+<sub>Supported claims, contradictions, uncertainty and next steps.</sub>
 
-  <text x="165" y="505" fill="#9BA8C9" font-size="10">RAW EVENTS</text>
-      <text x="455" y="505" fill="#9BA8C9" font-size="10">TEMPORAL GRAPH</text>
-      <text x="745" y="505" fill="#9BA8C9" font-size="10">INCIDENT TIMELINE</text>
-      <text x="1035" y="505" fill="#9BA8C9" font-size="10">LINKED EVIDENCE</text>
-    </g>
+</td>
+</tr>
+</table>
 
-  <rect x="0" y="536" width="1200" height="24" fill="#070A14"/>
-    <text x="24" y="552" fill="#7183A8"
-          font-family="monospace" font-size="10">
-      RESEARCH PROTOTYPE // HUMAN-VERIFIED INVESTIGATION // TRACEABLE EVIDENCE
-    </text>
-    <text x="1176" y="552" fill="#00D9FF"
-          text-anchor="end" font-family="monospace" font-size="10">
-      SX-001
-    </text>
-  </g>
-</svg>
+<img src="https://capsule-render.vercel.app/api?type=rect&height=2&color=0:00D9FF,50:BB63FF,100:FF3158" width="100%" alt="Section divider"/>
+
+<a id="research-core"></a>
+
+<div align="center">
+
+## ◈ INSIDE THE INVESTIGATION ENGINE
+
+</div>
+
+```text
+┌──────────────────────────────────────────────────────┐
+│                 SECURITY TELEMETRY                   │
+│       AUTH LOGS · ENDPOINTS · DNS · NETWORK          │
+└────────────────────────┬─────────────────────────────┘
+                         ▼
+┌──────────────────────────────────────────────────────┐
+│              NORMALIZATION & VALIDATION              │
+│          Common Schema · Timestamps · IDs             │
+└────────────────────────┬─────────────────────────────┘
+                         ▼
+┌──────────────────────────────────────────────────────┐
+│            TEMPORAL CORRELATION ENGINE                │
+│       Event Relationships · Graph · Timeline         │
+└────────────────────────┬─────────────────────────────┘
+                         ▼
+┌──────────────────────────────────────────────────────┐
+│           EVIDENCE-GROUNDED AI INVESTIGATION          │
+│       Retrieval · Hypotheses · Verification           │
+└────────────────────────┬─────────────────────────────┘
+                         ▼
+┌──────────────────────────────────────────────────────┐
+│              ANALYST REVIEW & REPORT                 │
+│       Evidence Links · Uncertainty · Next Steps       │
+└──────────────────────────────────────────────────────┘
+```
+
+<div align="center">
+
+<img src="https://img.shields.io/badge/CORE_01-TEMPORAL_REASONING-00D9FF?style=for-the-badge" alt="Temporal reasoning"/>
+<img src="https://img.shields.io/badge/CORE_02-GRAPH_INTELLIGENCE-BB63FF?style=for-the-badge" alt="Graph intelligence"/>
+
+<br/>
+
+<img src="https://img.shields.io/badge/CORE_03-EVIDENCE_GROUNDING-FF3158?style=for-the-badge" alt="Evidence grounding"/>
+<img src="https://img.shields.io/badge/CORE_04-HUMAN_OVERSIGHT-FFB547?style=for-the-badge" alt="Human oversight"/>
+
+</div>
+
+---
+
+<a id="project-roadmap"></a>
+
+<div align="center">
+
+## ⌬ FROM DIGITAL TRACES TO INVESTIGATIVE CLARITY
+
+**SENTINEL-X — An Evidence-Grounded Agentic Framework for Temporal Reconstruction and Investigation of Multi-Stage Cybersecurity Incidents**
+
+<sub>MASTER'S GRADUATION PROJECT · RESEARCH & ENGINEERING PROTOTYPE</sub>
+
+<img src="https://capsule-render.vercel.app/api?type=waving&height=120&section=footer&color=0:080B18,35:39115F,70:8B1E3F,100:00D9FF" width="100%" alt="SENTINEL-X closing banner"/>
+
+</div>
