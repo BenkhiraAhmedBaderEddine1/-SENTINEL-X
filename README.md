@@ -75,3 +75,12 @@
      alt="SENTINEL-X animated cyber investigation engine"/>
 
 </div>
+
+
+
+
+
+![image alt](https://github.com/BenkhiraAhmedBaderEddine1/-SENTINEL-X/blob/832c85b5373f6d3b7463c9a4e1da1f29d6d031c5/pic1.png)
+![image alt](https://github.com/BenkhiraAhmedBaderEddine1/-SENTINEL-X/blob/832c85b5373f6d3b7463c9a4e1da1f29d6d031c5/pic2.png)
+![image alt](https://github.com/BenkhiraAhmedBaderEddine1/-SENTINEL-X/blob/832c85b5373f6d3b7463c9a4e1da1f29d6d031c5/pic3.png)
+
