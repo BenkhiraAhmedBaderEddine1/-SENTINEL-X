@@ -77,10 +77,33 @@
 </div>
 
 
+⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘
+⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘
 
+SENTINEL-X is designed as a complete Master's graduation project combining software engineering, defensive cybersecurity, artificial intelligence, data analysis, graph-based reasoning, and scientific experimentation.
+
+The objective is not simply to create an attractive cybersecurity dashboard. It is to develop a working system that accepts security logs, identifies relationships between events, reconstructs possible incident timelines, links conclusions to supporting evidence, maps observed behaviors to MITRE ATT&CK, and assists a human analyst in investigating suspicious activity.
+
+This document provides the project from A to Z in English, including the academic report, problem statement, objectives, research contribution, system architecture, block diagram, flowcharts, algorithms, data models, implementation code, testing strategy, advantages, limitations, development roadmap, and final-defense preparation.
+
+An important academic distinction: the architecture and code below form a foundation for a research prototype. Any claims about accuracy, performance, completed implementation, or experimental results must be verified by actually implementing and testing the system. We will not invent results or claim that features have been implemented before they exist.
+
+
+
+
+
+⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘
 
 
 ![image alt](https://github.com/BenkhiraAhmedBaderEddine1/-SENTINEL-X/blob/832c85b5373f6d3b7463c9a4e1da1f29d6d031c5/pic1.png)
+
+
+⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘
+
 ![image alt](https://github.com/BenkhiraAhmedBaderEddine1/-SENTINEL-X/blob/832c85b5373f6d3b7463c9a4e1da1f29d6d031c5/pic2.png)
+
+⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘
+
+
 ![image alt](https://github.com/BenkhiraAhmedBaderEddine1/-SENTINEL-X/blob/832c85b5373f6d3b7463c9a4e1da1f29d6d031c5/pic3.png)
 
