@@ -343,3 +343,440 @@ Tests whether graph-based correlation, retrieval, and evidence verification impr
 </div>
 
 
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- SENTINEL-X | PART II — INTRODUCTION AND RESEARCH FOUNDATION    -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+
+<div align="center">
+
+# <span style="color:#00D9FF;">◈ PART II</span>
+# <span style="color:#BB63FF;">INTRODUCTION & RESEARCH FOUNDATION</span>
+
+**<span style="color:#FFB547;">From Raw Security Telemetry to Evidence-Grounded Investigation</span>**
+
+<br>
+
+<img src="https://img.shields.io/badge/CHAPTER-02-00D9FF?style=for-the-badge&logo=bookstack&logoColor=white" alt="Chapter 02"/>
+<img src="https://img.shields.io/badge/RESEARCH-EVIDENCE--DRIVEN-BB63FF?style=for-the-badge&logo=academia&logoColor=white" alt="Evidence-driven research"/>
+<img src="https://img.shields.io/badge/FOCUS-AI%20%7C%20CYBERSECURITY-FF3158?style=for-the-badge&logo=probot&logoColor=white" alt="AI and cybersecurity"/>
+
+<br><br>
+
+*Establishing the scientific foundations, research problem, and evaluation-driven contribution of SENTINEL-X.*
+
+</div>
+
+---
+
+<div align="center">
+
+`01 — INTRODUCTION` &nbsp; ◆ &nbsp; `02 — FOUNDATIONS` &nbsp; ◆ &nbsp; `03 — PROBLEM` &nbsp; ◆ &nbsp; `04 — RESEARCH GAP`
+
+</div>
+
+---
+
+## <span style="color:#00D9FF;">╭─ 05. INTRODUCTION</span>
+
+### <span style="color:#BB63FF;">05.1 — The Modern Cybersecurity Challenge</span>
+
+Cybersecurity has become a fundamental requirement for modern digital infrastructure. Organizations rely on information systems to manage sensitive information, provide essential services, conduct financial transactions, and support industrial operations. As these environments grow in size and complexity, their exposure to cyber threats also increases.
+
+Security incidents rarely produce only one observable signal. An incident may generate authentication records, endpoint events, network connections, DNS queries, process executions, account modifications, and application logs. These observations may be distributed across different systems, collected in different formats, and recorded with varying levels of detail.
+
+Security analysts must examine these records to determine whether they represent a genuine incident, identify the affected entities, establish a plausible event sequence, assess the impact, and recommend appropriate defensive actions.
+
+### <span style="color:#BB63FF;">05.2 — Why Investigation Remains Difficult</span>
+
+The investigation process can be time-consuming. Incomplete telemetry may prevent a definitive conclusion, while unrelated benign activities may appear connected. Large language models can assist with summarization and reasoning, but they may also produce unsupported explanations, misinterpret logs, or express unjustified confidence.
+
+An effective AI-assisted investigation system must therefore combine the flexibility of language models with structured data processing, deterministic validation, traceable evidence, and human oversight.
+
+### <span style="color:#BB63FF;">05.3 — The SENTINEL-X Approach</span>
+
+SENTINEL-X is proposed as a research framework for addressing this challenge. It integrates conventional event processing with graph-based relationships and retrieval-augmented AI reasoning.
+
+> [!IMPORTANT]
+> **Core principle:** A convincing explanation is not necessarily a correct explanation. Important conclusions must be supported by identifiable observations and evaluated against contradictory evidence.
+
+The project pursues two complementary goals:
+
+| Dimension | Primary objective |
+|:--|:--|
+| <span style="color:#00D9FF;">**Engineering**</span> | Build a modular, secure, usable incident-investigation platform. |
+| <span style="color:#BB63FF;">**Research**</span> | Measure whether explicit evidence tracking, temporal correlation, graph representations, and verification improve AI-assisted incident reconstruction. |
+
+### <span style="color:#FFB547;">05.4 — Conceptual Investigation Pipeline</span>
+
+```mermaid
+flowchart TD
+    A["Security Telemetry<br/>Authentication · Endpoint · DNS · Network"]
+    B["Normalization<br/>Common Event Schema"]
+    C["Temporal Correlation<br/>Time · Identity · Host"]
+    D["Entity & Event Graph<br/>Nodes · Relationships"]
+    E["Evidence Retrieval<br/>Relevant Records"]
+    F["AI-Assisted Hypotheses<br/>Evidence-Linked Explanations"]
+    G["Verification Layer<br/>Support · Contradictions · Uncertainty"]
+    H["Analyst Review<br/>Investigation Report · Next Steps"]
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E --> F
+    F --> G
+    G --> H
+
+    G -. "Insufficient evidence" .-> E
+
+    classDef telemetry fill:#102A43,stroke:#00D9FF,color:#FFFFFF,stroke-width:2px
+    classDef processing fill:#211638,stroke:#BB63FF,color:#FFFFFF,stroke-width:2px
+    classDef reasoning fill:#351A2C,stroke:#FF3158,color:#FFFFFF,stroke-width:2px
+    classDef review fill:#302713,stroke:#FFB547,color:#FFFFFF,stroke-width:2px
+
+    class A,B telemetry
+    class C,D,E processing
+    class F,G reasoning
+    class H review
+```
+
+<sub><span style="color:#FFB547;">Research note:</span> This diagram represents the proposed architecture. It does not imply that every component has already been implemented or experimentally validated.</sub>
+
+---
+
+## <span style="color:#BB63FF;">╭─ 06. BACKGROUND & FUNDAMENTAL CONCEPTS</span>
+
+### <span style="color:#00D9FF;">06.1 — Cybersecurity Incident</span>
+
+A cybersecurity incident is an event or sequence of events that threatens or compromises the confidentiality, integrity, or availability of information or information systems.
+
+Examples include unauthorized access, malicious software execution, account compromise, data exfiltration, and disruptive activity.
+
+<blockquote>
+  <span style="color:#FFB547;">⚠ Critical distinction:</span> A suspicious event is not automatically a confirmed incident. SENTINEL-X must preserve the distinction between observed activity, an investigative hypothesis, and a verified conclusion.
+</blockquote>
+
+### <span style="color:#00D9FF;">06.2 — Security Operations Center (SOC)</span>
+
+A Security Operations Center (SOC) is a function or team responsible for monitoring, detecting, investigating, and coordinating responses to security threats.
+
+SENTINEL-X is intended to support SOC analysts by organizing evidence and helping investigate alerts. It is not intended to replace a complete SOC or all its operational responsibilities.
+
+### <span style="color:#00D9FF;">06.3 — Security Information and Event Management (SIEM)</span>
+
+Security Information and Event Management (SIEM) platforms aggregate security logs, correlate activity, and provide detection and monitoring capabilities.
+
+SENTINEL-X can complement a SIEM by accepting exported events or alerts and performing focused incident reconstruction. It does not need to replace the existing detection infrastructure.
+
+### <span style="color:#00D9FF;">06.4 — Digital Forensics</span>
+
+Digital forensics involves the systematic collection, preservation, examination, and interpretation of digital evidence.
+
+For SENTINEL-X, this motivates the following design principles:
+
+- [ ] Preserve original event records.
+- [ ] Record source identifiers and timestamps.
+- [ ] Keep transformations traceable.
+- [ ] Record the origin of generated conclusions.
+- [ ] Distinguish direct observations from analytical inferences.
+- [ ] Preserve contradictory observations instead of silently discarding them.
+
+> [!WARNING]
+> A research prototype that analyzes logs is not automatically a certified forensic acquisition system. Chain-of-custody requirements and forensic integrity controls must be designed and tested if the system is intended for evidentiary use.
+
+### <span style="color:#00D9FF;">06.5 — Large Language Models (LLMs)</span>
+
+A large language model can interpret text, summarize information, classify descriptions, and generate structured explanations.
+
+Within SENTINEL-X, the LLM is intended to generate candidate hypotheses and explain evidence. It should not independently determine that a cyberattack definitely occurred.
+
+**Proposed responsibility boundary:**
+
+| Component | Responsibility |
+|:--|:--|
+| Event-processing layer | Parse, normalize, and validate telemetry. |
+| Correlation engine | Identify candidate relationships between events. |
+| Retrieval layer | Retrieve relevant records from the available evidence collection. |
+| Language model | Generate candidate explanations and investigative hypotheses. |
+| Verification layer | Check evidence references and flag unsupported or contradictory claims. |
+| Human analyst | Review the evidence and make operational decisions. |
+
+### <span style="color:#00D9FF;">06.6 — Retrieval-Augmented Generation (RAG)</span>
+
+Retrieval-Augmented Generation combines information retrieval with language generation.
+
+Instead of asking a model to answer solely from its internal parameters, the system retrieves relevant records from an available evidence collection and supplies them as context. The model can then generate an explanation referencing those records.
+
+```text
+┌──────────────────────┐
+│  Original Log Events  │
+└──────────┬───────────┘
+           ▼
+┌──────────────────────┐
+│ Evidence Preparation │
+└──────────┬───────────┘
+           ▼
+┌──────────────────────┐
+│ Relevant Retrieval   │
+└──────────┬───────────┘
+           ▼
+┌──────────────────────┐
+│ LLM-Assisted Analysis│
+└──────────┬───────────┘
+           ▼
+┌──────────────────────┐
+│ Evidence Verification│
+└──────────────────────┘
+```
+
+**Important limitation:** RAG improves access to relevant information but does not guarantee factual correctness. Retrieved evidence can be incomplete, irrelevant, outdated, or incorrectly interpreted.
+
+### <span style="color:#00D9FF;">06.7 — Graph-Based Reasoning</span>
+
+A graph represents entities as nodes and relationships as edges. This representation can help analysts explore connections between accounts, hosts, processes, domains, IP addresses, and observed activities.
+
+**Illustrative relationship model:**
+
+```mermaid
+flowchart LR
+    U["User Account"]
+    H1["Host A"]
+    P["Process"]
+    D["Domain"]
+    IP["IP Address"]
+    H2["Host B"]
+
+    U -->|"authenticated to"| H1
+    H1 -->|"executed"| P
+    P -->|"initiated connection"| D
+    D -->|"resolved to"| IP
+    IP -. "possible related traffic" .-> H2
+
+    classDef entity fill:#102A43,stroke:#00D9FF,color:#FFFFFF,stroke-width:2px
+    class U,H1,P,D,IP,H2 entity
+```
+
+The relationships shown above are illustrative. In a real investigation, each edge should retain its supporting event references, timestamps, and relationship confidence where applicable. A possible relationship must not be presented as a proven causal link.
+
+### <span style="color:#00D9FF;">06.8 — MITRE ATT&CK</span>
+
+MITRE ATT&CK is a knowledge base of adversary tactics and techniques based on observed attack behavior. SENTINEL-X can use the Enterprise knowledge base to organize behavioral observations into recognizable categories.
+
+ATT&CK mappings can help analysts describe suspected behaviors consistently, communicate investigative findings, and identify potentially relevant evidence.
+
+> [!NOTE]
+> **A technique mapping is not proof of an attack.** It is an analytical classification whose validity depends on the available evidence and the quality of the interpretation.
+
+---
+
+## <span style="color:#FF3158;">╭─ 07. PROBLEM STATEMENT</span>
+
+### <span style="color:#BB63FF;">07.1 — The Core Problem</span>
+
+Organizations collect security telemetry from multiple sources, but the events associated with one incident may be fragmented across systems and time. Analysts must manually correlate these observations, construct timelines, examine relationships, and justify their conclusions.
+
+Traditional rules can identify known patterns but may struggle with unfamiliar combinations of events or incomplete contextual information. Language models can summarize events but may generate explanations that are not supported by the underlying records.
+
+The central problem addressed by SENTINEL-X is therefore:
+
+> **How can heterogeneous security events be transformed into a temporal, evidence-linked incident representation that supports AI-assisted investigation while preserving traceability, uncertainty, and human control?**
+
+### <span style="color:#BB63FF;">07.2 — Five Dimensions of the Problem</span>
+
+| ID | Challenge | Description | Research direction |
+|:--:|:--|:--|:--|
+| <span style="color:#00D9FF;">P1</span> | **Data heterogeneity** | Different sources use different schemas and terminology. | Event normalization |
+| <span style="color:#BB63FF;">P2</span> | **Temporal complexity** | Related activities occur at different times and across multiple hosts. | Timeline reconstruction |
+| <span style="color:#FFB547;">P3</span> | **Relationship discovery** | Entities and events must be connected without unjustified associations. | Graph-based correlation |
+| <span style="color:#FF3158;">P4</span> | **Evidence reliability** | Conclusions must be supported by identifiable records. | Evidence verification |
+| <span style="color:#00D9FF;">P5</span> | **Investigation efficiency** | Analysts need to identify established facts, uncertainties, and useful next steps. | Prioritized investigation support |
+
+### <span style="color:#BB63FF;">07.3 — Expected System Behavior</span>
+
+```mermaid
+flowchart TD
+    A["Fragmented Security Events"]
+    B["Unified Event Representation"]
+    C["Correlated Timeline and Entity Graph"]
+    D["Evidence-Linked Hypotheses"]
+    E{"Is the evidence sufficient?"}
+    F["Report Supported Findings"]
+    G["Identify Gaps and Contradictions"]
+    H["Recommend Additional Investigation"]
+
+    A --> B --> C --> D --> E
+    E -->|"Yes, subject to review"| F
+    E -->|"No or uncertain"| G --> H
+    H -. "New evidence may be collected" .-> A
+
+    classDef input fill:#102A43,stroke:#00D9FF,color:#FFFFFF
+    classDef analysis fill:#211638,stroke:#BB63FF,color:#FFFFFF
+    classDef decision fill:#302713,stroke:#FFB547,color:#FFFFFF
+    classDef output fill:#351A2C,stroke:#FF3158,color:#FFFFFF
+
+    class A,B input
+    class C,D analysis
+    class E decision
+    class F,G,H output
+```
+
+The expected result is not an automated declaration that an attack occurred. It is a traceable investigative representation that helps an analyst understand what the available records support, what remains uncertain, and what should be examined next.
+
+---
+
+## <span style="color:#FFB547;">╭─ 08. RESEARCH GAP & ORIGINALITY</span>
+
+### <span style="color:#BB63FF;">08.1 — Existing Research Landscape</span>
+
+The general idea of AI-assisted SOC investigation is already established. Alert correlation, threat intelligence, retrieval-augmented generation, graph analysis, and LLM-based security assistance are active areas of development.
+
+Consequently, SENTINEL-X should **not** claim to be the first AI cybersecurity investigation system.
+
+Its potential research contribution is a specific, testable integration and evaluation of:
+
+- Evidence-linked investigative hypotheses.
+- Temporal relationships between heterogeneous events.
+- Explicit tracking of supporting and contradictory evidence.
+- Identification of missing evidence.
+- Recommendations for subsequent investigation steps.
+- Quantitative comparison against simpler baseline approaches.
+
+### <span style="color:#BB63FF;">08.2 — Proposed Research Gap</span>
+
+The research will investigate whether combining these mechanisms improves the reliability and usefulness of AI-assisted incident reconstruction compared with simpler approaches.
+
+The following matrix connects each proposed contribution to an evaluation method.
+
+| Proposed contribution | Evaluation approach | Evidence required |
+|:--|:--|:--|
+| Temporal event correlation | Precision, recall, and timeline accuracy | Ground-truth event relationships |
+| Graph-assisted reconstruction | Compare against non-graph baselines | Consistent test scenarios |
+| Evidence-linked hypotheses | Measure evidence-grounding rate | Auditable claim-to-event references |
+| Contradiction tracking | Evaluate contradiction detection | Annotated conflicting observations |
+| Missing-evidence recommendations | Expert or rubric-based assessment | Defined investigation criteria |
+| Efficient investigation | Measure latency and resource use | Reproducible execution records |
+
+These are proposed research directions, not established results. Their scientific value depends on implementation, experimental design, appropriate baselines, and reproducible evaluation.
+
+### <span style="color:#BB63FF;">08.3 — Research Questions</span>
+
+<details>
+<summary><strong><span style="color:#00D9FF;">RQ1 — Temporal Reconstruction Accuracy</span></strong></summary>
+
+How accurately can the system correlate heterogeneous security events to reconstruct multi-stage incidents?
+
+**Potential measurements:** Event-correlation precision and recall, event-order accuracy, and timeline reconstruction quality.
+
+</details>
+
+<details>
+<summary><strong><span style="color:#BB63FF;">RQ2 — Graphs + RAG vs. LLM-Only</span></strong></summary>
+
+Does combining temporal graphs with retrieval-augmented reasoning improve reconstruction quality compared with an LLM-only baseline?
+
+**Potential measurements:** Reconstruction accuracy, evidence coverage, and the quality of generated investigative hypotheses.
+
+</details>
+
+<details>
+<summary><strong><span style="color:#FF3158;">RQ3 — Evidence Verification</span></strong></summary>
+
+Does explicit evidence verification reduce unsupported conclusions?
+
+**Potential measurements:** Unsupported-claim rate, evidence-grounding rate, and the proportion of claims correctly linked to source records.
+
+</details>
+
+<details>
+<summary><strong><span style="color:#FFB547;">RQ4 — Missing Evidence and Next Steps</span></strong></summary>
+
+Can the system identify missing evidence and recommend useful next investigation steps?
+
+**Potential measurements:** Recommendation relevance, expert ratings, and coverage of predefined investigative requirements.
+
+</details>
+
+<details>
+<summary><strong><span style="color:#00D9FF;">RQ5 — Accuracy, Latency, and Cost</span></strong></summary>
+
+What trade-offs exist between accuracy, latency, and computational cost across different investigation approaches?
+
+**Potential measurements:** End-to-end latency, resource consumption, model usage, and reconstruction quality under comparable conditions.
+
+</details>
+
+### <span style="color:#BB63FF;">08.4 — Baseline Comparison Strategy</span>
+
+To test whether each component contributes measurable value, the evaluation can compare progressively enhanced configurations:
+
+```mermaid
+flowchart LR
+    A["Baseline A<br/>LLM Only"]
+    B["Baseline B<br/>LLM + Retrieval"]
+    C["Variant C<br/>Retrieval + Temporal Correlation"]
+    D["Variant D<br/>Retrieval + Temporal Graph"]
+    E["Variant E<br/>Full Framework + Verification"]
+
+    A --> B --> C --> D --> E
+
+    classDef baseline fill:#102A43,stroke:#00D9FF,color:#FFFFFF,stroke-width:2px
+    classDef enhanced fill:#211638,stroke:#BB63FF,color:#FFFFFF,stroke-width:2px
+    classDef full fill:#351A2C,stroke:#FF3158,color:#FFFFFF,stroke-width:3px
+
+    class A,B baseline
+    class C,D enhanced
+    class E full
+```
+
+For a valid comparison, all configurations should use comparable datasets, equivalent task definitions, consistent scoring criteria, and documented experimental settings. The exact baselines should be finalized after reviewing the selected models, tools, and relevant literature.
+
+### <span style="color:#BB63FF;">08.5 — Conditions for Claiming Originality</span>
+
+The originality of the final thesis must be established through a documented literature review and experimental evidence.
+
+A combination of known components can still be valuable engineering research, but it is not automatically a novel scientific algorithm.
+
+The thesis should clearly distinguish between:
+
+- **Established knowledge:** techniques already described in prior research.
+- **Engineering contribution:** the architecture, integration, implementation, and reproducible workflow.
+- **Empirical contribution:** results obtained through controlled experiments.
+- **Novel scientific contribution:** a demonstrably new method or finding, if supported by the literature review and evaluation.
+
+---
+
+## <span style="color:#00D9FF;">╭─ PART II — KEY TAKEAWAYS</span>
+
+<div align="center">
+
+| <span style="color:#00D9FF;">FOUNDATION</span> | <span style="color:#BB63FF;">PRINCIPLE</span> |
+|:--|:--|
+| Telemetry | Preserve source records and normalize carefully. |
+| Correlation | Connect events using explicit, testable criteria. |
+| Graphs | Represent relationships without assuming causality. |
+| AI reasoning | Generate hypotheses rather than unquestionable verdicts. |
+| Evidence | Track supporting records, contradictions, and uncertainty. |
+| Evaluation | Test improvements against defined baselines. |
+| Human oversight | Keep final investigative judgment reviewable by an analyst. |
+
+</div>
+
+---
+
+<div align="center">
+
+### <span style="color:#BB63FF;">THE SENTINEL-X RESEARCH PRINCIPLE</span>
+
+**<span style="color:#00D9FF;">Observe.</span>**
+**<span style="color:#BB63FF;">Correlate.</span>**
+**<span style="color:#FFB547;">Verify.</span>**
+**<span style="color:#FF3158;">Investigate.</span>**
+
+<sub>Evidence before assertion. Traceability before confidence. Evaluation before claims.</sub>
+
+<br>
+
+<img src="https://img.shields.io/badge/SENTINEL--X-RESEARCH%20FOUNDATION-00D9FF?style=for-the-badge&logo=github&logoColor=white" alt="SENTINEL-X Research Foundation"/>
+
+</div>
