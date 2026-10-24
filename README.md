@@ -780,3 +780,489 @@ The thesis should clearly distinguish between:
 <img src="https://img.shields.io/badge/SENTINEL--X-RESEARCH%20FOUNDATION-00D9FF?style=for-the-badge&logo=github&logoColor=white" alt="SENTINEL-X Research Foundation"/>
 
 </div>
+
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- SENTINEL-X | PART III — PROPOSED SOLUTION & SYSTEM REQUIREMENTS    -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+
+<div align="center">
+
+# <span style="color:#00D9FF;">◈ PART III</span>
+
+# <span style="color:#BB63FF;">PROPOSED SOLUTION</span>
+
+# <span style="color:#FFB547;">& SYSTEM REQUIREMENTS</span>
+
+**ENGINEERING BLUEPRINT · SYSTEM ARCHITECTURE · FUNCTIONAL SPECIFICATION**
+
+<br>
+
+<img src="https://img.shields.io/badge/SYSTEM-ARCHITECTURE-00D9FF?style=for-the-badge&logo=diagramsdotnet&logoColor=white" alt="System architecture"/>
+<img src="https://img.shields.io/badge/REQUIREMENTS-ENGINEERING-BB63FF?style=for-the-badge&logo=readthedocs&logoColor=white" alt="Requirements engineering"/>
+<img src="https://img.shields.io/badge/APPROACH-HUMAN--IN--THE--LOOP-FF3158?style=for-the-badge&logo=shield&logoColor=white" alt="Human in the loop"/>
+
+<br><br>
+
+*From heterogeneous security telemetry to structured, traceable, analyst-reviewed incident investigations.*
+
+</div>
+
+---
+
+<div align="center">
+
+`INGEST` &nbsp; ◈ &nbsp; `NORMALIZE` &nbsp; ◈ &nbsp; `CORRELATE` &nbsp; ◈ &nbsp; `VERIFY` &nbsp; ◈ &nbsp; `REPORT`
+
+</div>
+
+---
+
+## <span style="color:#00D9FF;">╭─ 09. PROPOSED SOLUTION</span>
+
+### <span style="color:#BB63FF;">09.1 — System Overview</span>
+
+SENTINEL-X is proposed as a modular investigation platform that transforms raw security records into a structured incident investigation.
+
+The platform combines deterministic event processing, temporal correlation, graph-based relationship analysis, evidence retrieval, AI-assisted hypothesis generation, and evidence verification. Its design prioritizes traceability, uncertainty management, and human oversight.
+
+The initial implementation should establish a reliable data pipeline before introducing large language models. Parsing, timestamp handling, chronological ordering, and evidence-reference validation should remain deterministic wherever practical.
+
+### <span style="color:#BB63FF;">09.2 — The Six-Stage Investigation Pipeline</span>
+
+```mermaid
+flowchart TD
+    A(["01 · INGESTION<br/>CSV · JSON · Supported Log Connectors"])
+    B["02 · NORMALIZATION<br/>Validation · Common Event Schema"]
+    C["03 · CORRELATION & GRAPH<br/>Temporal Rules · Entities · Relationships"]
+    D["04 · EVIDENCE RETRIEVAL<br/>Relevant Records · Security Knowledge"]
+    E["05 · INVESTIGATION & VERIFICATION<br/>Hypotheses · Contradictions · Evidence Gaps"]
+    F(["06 · REPORTING<br/>Timeline · Graph · Findings · Recommendations"])
+
+    A --> B --> C --> D --> E --> F
+
+    E -. "Insufficient evidence" .-> D
+
+    classDef ingest fill:#102A43,stroke:#00D9FF,color:#FFFFFF,stroke-width:2px
+    classDef processing fill:#211638,stroke:#BB63FF,color:#FFFFFF,stroke-width:2px
+    classDef reasoning fill:#351A2C,stroke:#FF3158,color:#FFFFFF,stroke-width:2px
+    classDef reporting fill:#302713,stroke:#FFB547,color:#FFFFFF,stroke-width:2px
+
+    class A,B ingest
+    class C,D processing
+    class E reasoning
+    class F reporting
+```
+
+<div align="center">
+
+| <span style="color:#00D9FF;">STAGE</span> | <span style="color:#BB63FF;">RESPONSIBILITY</span> | <span style="color:#FFB547;">EXPECTED OUTPUT</span> |
+|:--|:--|:--|
+| **01 · Ingestion** | Receive supported security event files. | Imported source records |
+| **02 · Normalization** | Validate and transform records into a common schema. | Normalized events |
+| **03 · Correlation** | Identify candidate temporal and entity relationships. | Correlated events and graph |
+| **04 · Retrieval** | Retrieve relevant records and reference knowledge. | Evidence context |
+| **05 · Investigation** | Generate and verify hypotheses; identify gaps. | Evidence-linked findings |
+| **06 · Reporting** | Present findings for analyst review. | Structured investigation report |
+
+</div>
+
+### <span style="color:#BB63FF;">09.3 — Proposed Internal Architecture</span>
+
+```mermaid
+flowchart TB
+    subgraph INPUT["LAYER 01 · DATA SOURCES"]
+        CSV["CSV Files"]
+        JSON["JSON Files"]
+        LOGS["Supported Log Connectors"]
+    end
+
+    subgraph CORE["LAYER 02 · DETERMINISTIC CORE"]
+        ING["Ingestion Service"]
+        VAL["Schema Validation"]
+        NOR["Event Normalizer"]
+        COR["Temporal Correlation Engine"]
+        GRAPH["Entity & Event Graph"]
+    end
+
+    subgraph INTEL["LAYER 03 · INVESTIGATION INTELLIGENCE"]
+        RET["Evidence Retrieval"]
+        LLM["LLM Hypothesis Generator"]
+        VER["Evidence & Contradiction Validator"]
+        ATT["ATT&CK Mapping"]
+    end
+
+    subgraph OUTPUT["LAYER 04 · ANALYST EXPERIENCE"]
+        API["Application API"]
+        UI["Investigation Dashboard"]
+        REP["Report Generator"]
+    end
+
+    CSV --> ING
+    JSON --> ING
+    LOGS --> ING
+
+    ING --> VAL --> NOR --> COR --> GRAPH
+    GRAPH --> RET
+    NOR --> RET
+    RET --> LLM --> VER
+    GRAPH --> ATT
+    VER --> API
+    ATT --> API
+    API --> UI
+    API --> REP
+
+    classDef source fill:#102A43,stroke:#00D9FF,color:#FFFFFF
+    classDef core fill:#211638,stroke:#BB63FF,color:#FFFFFF
+    classDef ai fill:#351A2C,stroke:#FF3158,color:#FFFFFF
+    classDef output fill:#302713,stroke:#FFB547,color:#FFFFFF
+
+    class CSV,JSON,LOGS source
+    class ING,VAL,NOR,COR,GRAPH core
+    class RET,LLM,VER,ATT ai
+    class API,UI,REP output
+```
+
+> [!IMPORTANT]
+> **Architecture principle:** The LLM is an analysis component, not the source of truth. Original records, normalized fields, timestamps, relationship rules, and evidence identifiers should remain independently inspectable.
+
+<sub>Architecture status: proposed design. Update this diagram to reflect the final implementation and actual technology stack.</sub>
+
+### <span style="color:#BB63FF;">09.4 — Implementation Strategy</span>
+
+The project should be developed incrementally to reduce debugging complexity and ensure that each component can be evaluated independently.
+
+```mermaid
+flowchart LR
+    P1["PHASE 01<br/>Reliable Data Pipeline"]
+    P2["PHASE 02<br/>Correlation & Timeline"]
+    P3["PHASE 03<br/>Entity Graph"]
+    P4["PHASE 04<br/>Evidence Retrieval"]
+    P5["PHASE 05<br/>AI & Verification"]
+    P6["PHASE 06<br/>Dashboard & Evaluation"]
+
+    P1 --> P2 --> P3 --> P4 --> P5 --> P6
+
+    classDef phase fill:#102A43,stroke:#00D9FF,color:#FFFFFF,stroke-width:2px
+    class P1,P2,P3,P4,P5,P6 phase
+```
+
+- **Phase 01:** Implement ingestion, validation, normalization, and stable event identifiers.
+- **Phase 02:** Implement chronological sorting and explicit event-correlation rules.
+- **Phase 03:** Represent entities and relationships in a queryable graph.
+- **Phase 04:** Retrieve relevant records using traceable identifiers.
+- **Phase 05:** Add AI-generated hypotheses, evidence-reference validation, and contradiction handling.
+- **Phase 06:** Build the analyst interface, report exports, security controls, and experimental evaluation.
+
+---
+
+## <span style="color:#BB63FF;">╭─ 10. FUNCTIONAL REQUIREMENTS</span>
+
+### <span style="color:#00D9FF;">10.1 — Requirements Specification</span>
+
+The following table defines the proposed functional requirements and their implementation priorities.
+
+| ID | Functional requirement | Priority |
+|:--:|:--|:--:|
+| <span style="color:#00D9FF;">FR-01</span> | Import JSON and CSV event records. | **MUST** |
+| <span style="color:#00D9FF;">FR-02</span> | Validate and normalize event fields. | **MUST** |
+| <span style="color:#00D9FF;">FR-03</span> | Preserve original event identifiers and timestamps. | **MUST** |
+| <span style="color:#00D9FF;">FR-04</span> | Sort events chronologically. | **MUST** |
+| <span style="color:#00D9FF;">FR-05</span> | Correlate events using explicit rules. | **MUST** |
+| <span style="color:#00D9FF;">FR-06</span> | Build a graph of entities and relationships. | **MUST** |
+| <span style="color:#00D9FF;">FR-07</span> | Display the incident timeline. | **MUST** |
+| <span style="color:#00D9FF;">FR-08</span> | Store investigation hypotheses and evidence references. | **MUST** |
+| <span style="color:#00D9FF;">FR-09</span> | Validate evidence identifiers in generated claims. | **MUST** |
+| <span style="color:#00D9FF;">FR-10</span> | Generate a structured investigation report. | **MUST** |
+| <span style="color:#BB63FF;">FR-11</span> | Map observed behavior to ATT&CK techniques. | **SHOULD** |
+| <span style="color:#BB63FF;">FR-12</span> | Retrieve relevant evidence for AI analysis. | **SHOULD** |
+| <span style="color:#BB63FF;">FR-13</span> | Recommend missing evidence. | **SHOULD** |
+| <span style="color:#BB63FF;">FR-14</span> | Provide authentication and role-based access control. | **SHOULD** |
+| <span style="color:#BB63FF;">FR-15</span> | Export reports in JSON and Markdown. | **SHOULD** |
+| <span style="color:#FFB547;">FR-16</span> | Integrate additional live telemetry sources. | **FUTURE** |
+
+### <span style="color:#BB63FF;">10.2 — Priority Legend</span>
+
+<div align="center">
+
+| Priority | Meaning |
+|:--|:--|
+| <span style="color:#00D9FF;">**MUST**</span> | Required for the minimum viable research prototype. |
+| <span style="color:#BB63FF;">**SHOULD**</span> | Important enhancement, subject to available time and resources. |
+| <span style="color:#FFB547;">**FUTURE**</span> | Planned extension outside the initial implementation scope. |
+
+</div>
+
+### <span style="color:#BB63FF;">10.3 — Functional Requirement Traceability</span>
+
+Each requirement should be linked to a corresponding implementation component and test case.
+
+| Requirement group | Main component | Example verification |
+|:--|:--|:--|
+| FR-01–FR-03 | Ingestion and normalization | Import valid, malformed, and incomplete records. |
+| FR-04–FR-05 | Correlation engine | Verify ordering and predefined correlation cases. |
+| FR-06–FR-07 | Graph and timeline modules | Check nodes, edges, timestamps, and displayed sequences. |
+| FR-08–FR-09 | Evidence and verification layer | Test valid, missing, and unknown evidence identifiers. |
+| FR-10, FR-15 | Reporting module | Validate report structure and export consistency. |
+| FR-11–FR-13 | Investigation intelligence | Evaluate mappings, retrieval, and evidence-gap suggestions. |
+| FR-14 | Identity and access layer | Test permissions and unauthorized access attempts. |
+| FR-16 | Connector framework | Validate each additional source independently. |
+
+---
+
+## <span style="color:#FF3158;">╭─ 11. NON-FUNCTIONAL REQUIREMENTS</span>
+
+### <span style="color:#BB63FF;">11.1 — Quality Attributes</span>
+
+| Attribute | Requirement | Verification approach |
+|:--|:--|:--|
+| **Reliability** | Invalid records must be handled without silently corrupting an investigation. | Malformed-input and recovery tests |
+| **Security** | Authentication, authorization, secret management, and input validation must be implemented before production deployment. | Security tests and configuration review |
+| **Explainability** | Significant hypotheses should reference supporting records and identify uncertainty. | Evidence-reference and claim-review tests |
+| **Performance** | Processing time should be measured across different dataset sizes. | Repeated benchmark runs |
+| **Maintainability** | Ingestion, correlation, graph construction, AI reasoning, and reporting should be separate modules. | Module and dependency review |
+| **Reproducibility** | Experiments should record dataset version, configuration, model, prompts, and software version. | Experiment-metadata audit |
+| **Privacy** | Real organizational logs should be minimized, access-controlled, and protected against unnecessary disclosure. | Data-handling and access review |
+| **Interoperability** | Additional log formats should be supported without redesigning the entire system. | Connector integration tests |
+
+### <span style="color:#BB63FF;">11.2 — Reliability and Evidence Integrity</span>
+
+SENTINEL-X should preserve the distinction between original records, normalized records, inferred relationships, and AI-generated conclusions.
+
+The proposed evidence lifecycle is:
+
+```mermaid
+flowchart TD
+    A["Original Event"]
+    B["Validated Event"]
+    C["Normalized Record"]
+    D["Evidence Identifier"]
+    E["Correlation or Relationship"]
+    F["Investigative Claim"]
+    G["Verification Result"]
+
+    A --> B --> C --> D --> E --> F --> G
+
+    G -. "Traceable to source" .-> D
+
+    classDef record fill:#102A43,stroke:#00D9FF,color:#FFFFFF
+    classDef analysis fill:#211638,stroke:#BB63FF,color:#FFFFFF
+    classDef verification fill:#302713,stroke:#FFB547,color:#FFFFFF
+
+    class A,B,C,D record
+    class E,F analysis
+    class G verification
+```
+
+The system should record sufficient metadata to trace each significant conclusion back to the observations used to support it. Where evidence is absent or contradictory, the system should preserve that uncertainty rather than silently converting it into certainty.
+
+### <span style="color:#BB63FF;">11.3 — Security and Privacy Boundaries</span>
+
+- Validate imported files and enforce reasonable file-size and parsing limits.
+- Restrict access to investigations according to user permissions.
+- Keep API keys and credentials outside source code and public repositories.
+- Avoid sending sensitive logs to external model providers without explicit authorization and an appropriate data-handling policy.
+- Record important investigation actions for auditing.
+- Treat imported log content as untrusted data, not as instructions to the AI model.
+- Test authorization boundaries before exposing the application to external users.
+
+> [!CAUTION]
+> An AI-assisted investigation platform should not automatically execute destructive response actions based solely on generated hypotheses. Operational actions must follow explicit authorization and appropriate human review.
+
+---
+
+## <span style="color:#FFB547;">╭─ 12. USE CASES & ACTOR INTERACTIONS</span>
+
+### <span style="color:#BB63FF;">12.1 — Main Actors</span>
+
+| Actor | Responsibilities |
+|:--|:--|
+| <span style="color:#00D9FF;">**Administrator**</span> | Manages users, permissions, and system configuration. |
+| <span style="color:#BB63FF;">**Security Analyst**</span> | Imports evidence, investigates incidents, and reviews findings. |
+| <span style="color:#FFB547;">**Viewer**</span> | Accesses authorized reports and investigation results. |
+| <span style="color:#FF3158;">**AI Investigation Service**</span> | Retrieves evidence and proposes hypotheses under defined constraints. |
+
+### <span style="color:#BB63FF;">12.2 — Use Case Diagram</span>
+
+```mermaid
+flowchart LR
+    ADMIN["Administrator"]
+    ANALYST["Security Analyst"]
+    VIEWER["Viewer"]
+    AI["AI Investigation Service"]
+
+    subgraph SYSTEM["SENTINEL-X INVESTIGATION PLATFORM"]
+        UC1(["Manage Users & Permissions"])
+        UC2(["Import Security Events"])
+        UC3(["Configure Investigation Window"])
+        UC4(["Reconstruct Timeline"])
+        UC5(["Explore Entity Graph"])
+        UC6(["Review Evidence & Hypotheses"])
+        UC7(["Generate Investigation Report"])
+        UC8(["Access Authorized Reports"])
+        UC9(["Retrieve Relevant Evidence"])
+        UC10(["Propose & Verify Hypotheses"])
+    end
+
+    ADMIN --> UC1
+    ADMIN --> UC8
+
+    ANALYST --> UC2
+    ANALYST --> UC3
+    ANALYST --> UC4
+    ANALYST --> UC5
+    ANALYST --> UC6
+    ANALYST --> UC7
+
+    VIEWER --> UC8
+
+    AI --> UC9
+    AI --> UC10
+
+    UC6 -. "Review generated findings" .-> UC10
+    UC10 -. "Uses retrieved context" .-> UC9
+
+    classDef actor fill:#102A43,stroke:#00D9FF,color:#FFFFFF,stroke-width:2px
+    classDef usecase fill:#211638,stroke:#BB63FF,color:#FFFFFF,stroke-width:2px
+
+    class ADMIN,ANALYST,VIEWER,AI actor
+    class UC1,UC2,UC3,UC4,UC5,UC6,UC7,UC8,UC9,UC10 usecase
+```
+
+<sub>Note: This is a conceptual use-case representation. A formal UML deliverable may represent the system boundary, actors, associations, and include/extend relationships using a dedicated UML tool.</sub>
+
+### <span style="color:#BB63FF;">12.3 — Use Case 01: Investigate an Incident</span>
+
+**Primary actor:** Security Analyst
+
+**Objective:** Reconstruct an incident timeline from imported security events.
+
+**Preconditions:**
+- The analyst has permission to create or access the investigation.
+- The input files use a supported format.
+
+**Main flow:**
+
+1. The analyst imports CSV or JSON event records.
+2. SENTINEL-X validates and normalizes the records.
+3. The analyst selects an investigation time window.
+4. The correlation engine identifies candidate event relationships.
+5. The system constructs a chronological timeline.
+6. The analyst reviews the timeline and supporting records.
+
+**Expected result:** A traceable timeline containing event references and explicit uncertainty where the available data is insufficient.
+
+### <span style="color:#BB63FF;">12.4 — Use Case 02: Explore Relationships</span>
+
+**Primary actor:** Security Analyst
+
+**Objective:** Examine relationships between hosts, users, processes, domains, IP addresses, and security events.
+
+**Main flow:**
+
+1. The analyst opens the incident graph.
+2. The system displays relevant entities and relationships.
+3. The analyst selects a node or edge.
+4. The system presents the associated source records and timestamps.
+5. The analyst examines whether the relationship is supported by evidence.
+
+**Expected result:** An interactive or queryable graph that helps explore relationships without assuming that correlation proves causation.
+
+### <span style="color:#BB63FF;">12.5 — Use Case 03: Verify a Hypothesis</span>
+
+**Primary actor:** Security Analyst
+
+**Supporting component:** AI Investigation Service
+
+**Objective:** Examine whether a proposed explanation is supported by available evidence.
+
+**Main flow:**
+
+1. The AI service proposes a candidate investigative hypothesis.
+2. The hypothesis references relevant evidence identifiers.
+3. The verification layer checks whether those identifiers exist.
+4. The system presents supporting and contradictory observations.
+5. The analyst reviews the hypothesis and its limitations.
+
+**Expected result:** An evidence-linked hypothesis with a transparent verification status, rather than an unqualified declaration that an attack occurred.
+
+### <span style="color:#BB63FF;">12.6 — Use Case 04: Produce an Investigation Report</span>
+
+**Primary actor:** Security Analyst
+
+**Objective:** Produce a structured report for review and documentation.
+
+The report should distinguish:
+
+- Observed facts.
+- Inferred relationships.
+- Investigative hypotheses.
+- Supporting and contradictory evidence.
+- Missing evidence and unresolved questions.
+- Recommended defensive investigation steps.
+
+**Expected result:** A structured report suitable for analyst review and export, with source references retained wherever practical.
+
+### <span style="color:#BB63FF;">12.7 — Overall Use Case Workflow</span>
+
+```mermaid
+sequenceDiagram
+    actor Analyst
+    participant UI as SENTINEL-X Interface
+    participant Core as Processing Engine
+    participant AI as AI Investigation Service
+    participant Verify as Evidence Validator
+
+    Analyst->>UI: Import security event files
+    UI->>Core: Submit event records
+    Core->>Core: Validate and normalize
+    Core->>Core: Correlate events and construct graph
+    Core-->>UI: Return timeline and relationships
+
+    Analyst->>UI: Request investigative analysis
+    UI->>AI: Provide selected evidence context
+    AI-->>Verify: Submit candidate hypotheses and evidence IDs
+    Verify->>Verify: Validate references and flag contradictions
+    Verify-->>UI: Return verification results
+
+    UI-->>Analyst: Display findings and uncertainty
+    Analyst->>UI: Review and request report
+    UI-->>Analyst: Export structured investigation report
+```
+
+---
+
+## <span style="color:#00D9FF;">╭─ PART III — DESIGN PRINCIPLES</span>
+
+<div align="center">
+
+| <span style="color:#00D9FF;">PRINCIPLE</span> | <span style="color:#BB63FF;">ENGINEERING COMMITMENT</span> |
+|:--|:--|
+| **Deterministic core** | Validate and process event data predictably. |
+| **Evidence traceability** | Link important findings to identifiable source records. |
+| **Explicit uncertainty** | Preserve ambiguity and contradictory evidence. |
+| **Modular architecture** | Keep processing, intelligence, and reporting components separable. |
+| **Human oversight** | Keep investigative decisions reviewable by an authorized analyst. |
+| **Reproducible evaluation** | Compare the proposed system against documented baselines. |
+
+</div>
+
+---
+
+<div align="center">
+
+### <span style="color:#BB63FF;">SENTINEL-X — FROM ARCHITECTURE TO IMPLEMENTATION</span>
+
+**<span style="color:#00D9FF;">STRUCTURE.</span>**
+**<span style="color:#BB63FF;">CORRELATE.</span>**
+**<span style="color:#FFB547;">VERIFY.</span>**
+**<span style="color:#FF3158;">REPORT.</span>**
+
+<sub>Evidence before assertion · Modular engineering · Human-reviewed investigation</sub>
+
+<br>
+
+<img src="https://img.shields.io/badge/SENTINEL--X-PROPOSED%20SYSTEM%20DESIGN-00D9FF?style=for-the-badge&logo=github&logoColor=white" alt="SENTINEL-X proposed system design"/>
+
+</div>
+
