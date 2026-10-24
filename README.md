@@ -111,45 +111,6 @@ An important academic distinction: the architecture and code below form a founda
 
 
 
-
-<div align="center">
-
-<img src="https://capsule-render.vercel.app/api?type=venom&height=180&color=0:080B18,35:35105B,70:8B1E3F,100:00D9FF&text=SENTINEL-X&fontSize=65&fontColor=FFFFFF&fontAlignY=45&desc=EVIDENCE-GROUNDED%20CYBER%20INVESTIGATION&descSize=13&descAlignY=68&animation=fadeIn" width="100%" alt="SENTINEL-X"/>
-
-### <span style="color:#00D9FF">◈ ARTIFICIAL INTELLIGENCE</span> &nbsp; ◆ &nbsp; <span style="color:#BB63FF">DIGITAL FORENSICS</span>
-
-<sub>TEMPORAL RECONSTRUCTION · GRAPH REASONING · INCIDENT RESPONSE</sub>
-
-<br/>
-
-<img src="https://img.shields.io/badge/01-INVESTIGATE-00D9FF?style=for-the-badge&labelColor=101426" alt="Investigate"/>
-<img src="https://img.shields.io/badge/02-CORRELATE-BB63FF?style=for-the-badge&labelColor=101426" alt="Correlate"/>
-<img src="https://img.shields.io/badge/03-RECONSTRUCT-FFB547?style=for-the-badge&labelColor=101426" alt="Reconstruct"/>
-<img src="https://img.shields.io/badge/04-VERIFY-FF3158?style=for-the-badge&labelColor=101426" alt="Verify"/>
-
-<br/><br/>
-
-**Every event leaves a trace. Every hypothesis needs evidence.**
-
-*An AI-assisted framework for transforming fragmented security telemetry into explainable incident investigations.*
-
-</div>
-
-<img src="https://capsule-render.vercel.app/api?type=rect&height=4&color=0:00D9FF,30:BB63FF,65:FF3158,100:FFB547" width="100%" alt="Neon divider"/>
-
-<div align="center">
-
-### <span style="color:#BB63FF">◈ TABLE OF CONTENTS ◈</span>
-
-</div>
-
-| Section | Description |
-|:---|:---|
-| [`01`](#-01-project-description) | Project Description |
-| [`02`](#-02-executive-summary) | Executive Summary |
-| [`03`](#-03-project-objectives) | Project Objectives |
-| [`04`](#-04-what-makes-sentinel-x-interesting) | Research and Technical Highlights |
-
 ---
 
 <a id="project-description"></a>
