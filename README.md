@@ -1,4 +1,5 @@
 
+
 <div align="center">
 
 <img src="https://capsule-render.vercel.app/api?type=venom&height=220&color=0:090B18,30:39115F,65:8B1E3F,100:00D9FF&text=SENTINEL-X&fontSize=76&fontColor=FFFFFF&fontAlignY=45&desc=CYBER%20INTELLIGENCE%20%2F%20INCIDENT%20RECONSTRUCTION&descSize=13&descAlignY=68&animation=fadeIn" width="100%" alt="SENTINEL-X Cyber Intelligence"/>
@@ -66,130 +67,11 @@
 ---
 
 
-<img src="https://capsule-render.vercel.app/api?type=rect&height=3&color=0:FF3158,45:BB63FF,100:00D9FF" width="100%" alt="Investigation divider"/>
-
-<a id="how-sentinel-x-works"></a>
 
 <div align="center">
 
-# ⌁ THE DIGITAL CRIME SCENE ⌁
-
-### FRAGMENTED SIGNALS. CONNECTED EVIDENCE. EXPLAINABLE INVESTIGATION.
-
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=17&duration=2500&pause=700&color=00D9FF&center=true&vCenter=true&width=800&lines=ANALYZING+SECURITY+TELEMETRY...;CORRELATING+TEMPORAL+EVENTS...;RECONSTRUCTING+INCIDENT+SEQUENCES...;VERIFYING+EVIDENCE+AND+HYPOTHESES..." alt="Animated SENTINEL-X investigation status"/>
-
-</div>
-
-<table>
-<tr>
-<td width="25%" align="center">
-
-### <span style="color:#00D9FF">01</span>
-
-<img src="https://img.shields.io/badge/INPUT-00D9FF?style=for-the-badge&labelColor=09111F" alt="Input"/>
-
-**RAW SIGNALS**
-
-<sub>Authentication logs, endpoint events, DNS records and alerts.</sub>
-
-</td>
-<td width="25%" align="center">
-
-### <span style="color:#BB63FF">02</span>
-
-<img src="https://img.shields.io/badge/CORRELATION-BB63FF?style=for-the-badge&labelColor=09111F" alt="Correlation"/>
-
-**EVENT GRAPH**
-
-<sub>Relationships between users, processes, hosts and network indicators.</sub>
-
-</td>
-<td width="25%" align="center">
-
-### <span style="color:#FFB547">03</span>
-
-<img src="https://img.shields.io/badge/RECONSTRUCTION-FFB547?style=for-the-badge&labelColor=09111F" alt="Reconstruction"/>
-
-**ATTACK TIMELINE**
-
-<sub>A chronological view of potentially related activity.</sub>
-
-</td>
-<td width="25%" align="center">
-
-### <span style="color:#FF3158">04</span>
-
-<img src="https://img.shields.io/badge/VERIFICATION-FF3158?style=for-the-badge&labelColor=09111F" alt="Verification"/>
-
-**EVIDENCE REPORT**
-
-<sub>Supported claims, contradictions, uncertainty and next steps.</sub>
-
-</td>
-</tr>
-</table>
-
-<img src="https://capsule-render.vercel.app/api?type=rect&height=2&color=0:00D9FF,50:BB63FF,100:FF3158" width="100%" alt="Section divider"/>
-
-<a id="research-core"></a>
-
-<div align="center">
-
-## ◈ INSIDE THE INVESTIGATION ENGINE
-
-</div>
-
-```text
-┌──────────────────────────────────────────────────────┐
-│                 SECURITY TELEMETRY                   │
-│       AUTH LOGS · ENDPOINTS · DNS · NETWORK          │
-└────────────────────────┬─────────────────────────────┘
-                         ▼
-┌──────────────────────────────────────────────────────┐
-│              NORMALIZATION & VALIDATION              │
-│          Common Schema · Timestamps · IDs             │
-└────────────────────────┬─────────────────────────────┘
-                         ▼
-┌──────────────────────────────────────────────────────┐
-│            TEMPORAL CORRELATION ENGINE                │
-│       Event Relationships · Graph · Timeline         │
-└────────────────────────┬─────────────────────────────┘
-                         ▼
-┌──────────────────────────────────────────────────────┐
-│           EVIDENCE-GROUNDED AI INVESTIGATION          │
-│       Retrieval · Hypotheses · Verification           │
-└────────────────────────┬─────────────────────────────┘
-                         ▼
-┌──────────────────────────────────────────────────────┐
-│              ANALYST REVIEW & REPORT                 │
-│       Evidence Links · Uncertainty · Next Steps       │
-└──────────────────────────────────────────────────────┘
-```
-
-<div align="center">
-
-<img src="https://img.shields.io/badge/CORE_01-TEMPORAL_REASONING-00D9FF?style=for-the-badge" alt="Temporal reasoning"/>
-<img src="https://img.shields.io/badge/CORE_02-GRAPH_INTELLIGENCE-BB63FF?style=for-the-badge" alt="Graph intelligence"/>
-
-<br/>
-
-<img src="https://img.shields.io/badge/CORE_03-EVIDENCE_GROUNDING-FF3158?style=for-the-badge" alt="Evidence grounding"/>
-<img src="https://img.shields.io/badge/CORE_04-HUMAN_OVERSIGHT-FFB547?style=for-the-badge" alt="Human oversight"/>
-
-</div>
-
----
-
-<a id="project-roadmap"></a>
-
-<div align="center">
-
-## ⌬ FROM DIGITAL TRACES TO INVESTIGATIVE CLARITY
-
-**SENTINEL-X — An Evidence-Grounded Agentic Framework for Temporal Reconstruction and Investigation of Multi-Stage Cybersecurity Incidents**
-
-<sub>MASTER'S GRADUATION PROJECT · RESEARCH & ENGINEERING PROTOTYPE</sub>
-
-<img src="https://capsule-render.vercel.app/api?type=waving&height=120&section=footer&color=0:080B18,35:39115F,70:8B1E3F,100:00D9FF" width="100%" alt="SENTINEL-X closing banner"/>
+<img src="sentinel-x-hero.svg"
+     width="100%"
+     alt="SENTINEL-X animated cyber investigation engine"/>
 
 </div>
